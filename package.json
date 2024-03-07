@@ -13,6 +13,7 @@
     "dev:docs": "pnpm --filter docs dev",
     "preview:docs": "pnpm --filter docs preview",
     "clear": "pnpm --filter @x-attempt/ui clear",
+    "version:release": "pnpm --filter @x-attempt/ui release",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
