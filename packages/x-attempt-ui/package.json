@@ -1,0 +1,21 @@
+{
+  "name": "@x-attempt/ui",
+  "version": "0.0.1",
+  "description": "A awesome vue component library.",
+  "author": "ccattempt",
+  "license": "ISC",
+  "keywords": [
+    "vue",
+    "x-attempt-ui",
+    "typescript"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "scripts": {
+    "build": "x-attempt-build build",
+    "build:comp": "x-attempt-build buildComp",
+    "build:style": "x-attempt-build buildStyle",
+    "clear": "x-attempt-build clear"
+  }
+}

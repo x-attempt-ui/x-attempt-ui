@@ -1,0 +1,12 @@
+.x-button {
+  color: red;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #ccc;
+    color: #fff;
+  }
+}

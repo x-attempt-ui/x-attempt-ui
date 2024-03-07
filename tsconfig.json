@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@x-attempt/ui": ["./packages/x-attempt-ui"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "vite/client", "vitest/globals"],
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["**/node_modules/**", "**/demo/**", "**/build/**"]
+}

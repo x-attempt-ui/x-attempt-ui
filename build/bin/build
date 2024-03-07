@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+function build () {
+  import('../dist/index.js');
+}
+
+build();
