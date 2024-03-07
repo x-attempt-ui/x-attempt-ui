@@ -1,7 +1,7 @@
 {
   "name": "@x-attempt/ui",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "A awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "ISC",
@@ -38,6 +38,9 @@
     "build:style": "x-attempt-build buildStyle",
     "clear": "x-attempt-build clear",
     "release": "standard-version"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "standard-version": "^9.5.0"
