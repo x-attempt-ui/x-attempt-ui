@@ -9,7 +9,7 @@
       "@x-attempt/ui": ["./packages/x-attempt-ui"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "vite/client", "vitest/globals"],
+    "types": ["node", "vite/client"],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
