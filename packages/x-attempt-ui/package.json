@@ -1,21 +1,45 @@
 {
   "name": "@x-attempt/ui",
-  "version": "0.0.1",
+  "type": "module",
+  "version": "0.0.2",
   "description": "A awesome vue component library.",
-  "author": "ccattempt",
+  "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "ISC",
+  "homepage": "https://github.com/XinXiaoIsMe/x-attempt-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XinXiaoIsMe/yike-design-dev",
+    "directory": "yike-design-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/XinXiaoIsMe/x-attempt-ui/issues"
+  },
   "keywords": [
     "vue",
     "x-attempt-ui",
     "typescript"
   ],
+  "sideEffects": [
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.scss"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "files": [
+    "es",
+    "json",
+    "lib"
+  ],
   "scripts": {
     "build": "x-attempt-build build",
     "build:comp": "x-attempt-build buildComp",
     "build:style": "x-attempt-build buildStyle",
-    "clear": "x-attempt-build clear"
+    "clear": "x-attempt-build clear",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "standard-version": "^9.5.0"
   }
 }
