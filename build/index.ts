@@ -4,7 +4,7 @@ import consola from 'consola'
 import buildComponent from './scripts/build-component'
 import buildStyle from './scripts/build-style'
 import clear from './scripts/clear'
-import { createPath, publishDir } from './utils/paths'
+import { createPath, pkgDir } from './utils/paths'
 
 const program = new Command()
 const packageContent = fs.readFileSync('./package.json', {
@@ -52,9 +52,9 @@ program.parse()
 function setPackageJson() {
   const pkgJson = { ...packageJson }
   pkgJson.name = 'x-attempt-ui'
-  pkgJson.scripts.publish = 'npm publish'
+  pkgJson.scripts.publish = 'release-it'
   fs.writeFile(
-    createPath(publishDir, 'package.json'),
+    createPath(pkgDir),
     JSON.stringify(pkgJson, null, 2),
     'utf8',
     (err) => {

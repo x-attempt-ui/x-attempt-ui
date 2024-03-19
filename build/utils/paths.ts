@@ -6,6 +6,7 @@ export function createPath(...p: string[]) {
   return path.resolve(root, ...p)
 }
 export const publishDir = 'publish'
+export const pkgDir = 'publish/package.json'
 export const esDir = 'publish/es'
 export const libDir = 'publish/lib'
 export const srcDir = path.resolve(root, './src')

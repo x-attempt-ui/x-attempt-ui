@@ -14,14 +14,14 @@
     "dev:docs": "pnpm --filter docs dev",
     "preview:docs": "pnpm --filter docs preview",
     "clear": "pnpm --filter @x-attempt/ui clear",
-    "version:release": "pnpm --filter @x-attempt/ui release",
+    "release:version": "pnpm --filter @x-attempt/ui release:version",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
-    "publish": "pnpm --filter @x-attempt/ui/publish publish"
+    "release-it": "pnpm --filter @x-attempt/ui release-it"
   },
   "dependencies": {
     "@x-attempt/ui": "workspace:*"
@@ -30,6 +30,7 @@
     "@antfu/eslint-config": "^2.8.0",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
+    "release-it": "^17.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
   }
