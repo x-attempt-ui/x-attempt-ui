@@ -8,8 +8,8 @@
   "homepage": "https://github.com/XinXiaoIsMe/x-attempt-ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/XinXiaoIsMe/yike-design-dev",
-    "directory": "yike-design-ui"
+    "url": "https://github.com/XinXiaoIsMe/x-attempt-ui",
+    "directory": "x-attempt-ui"
   },
   "bugs": {
     "url": "https://github.com/XinXiaoIsMe/x-attempt-ui/issues"
@@ -25,11 +25,10 @@
     "*.scss"
   ],
   "main": "lib/index.js",
-  "module": "es/index.js",
+  "module": "es/index.mjs",
   "types": "es/index.d.ts",
   "files": [
     "es",
-    "json",
     "lib"
   ],
   "scripts": {

@@ -10,8 +10,9 @@ import { createPath, esDir, libDir, srcDir } from '../../utils/paths'
 async function buildComponent() {
   consola.start('build component module...')
 
-  await fs.emptyDir(createPath('es'))
-  await fs.emptyDir(createPath('lib'))
+  await fs.emptyDir(createPath('publish'))
+  await fs.emptyDir(createPath('publish/es'))
+  await fs.emptyDir(createPath('publish/lib'))
   const entry = [
     ...glob
       .sync('**/*.{ts,vue}', {

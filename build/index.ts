@@ -1,8 +1,10 @@
 import fs from 'node:fs'
 import { Command } from 'commander'
+import consola from 'consola'
 import buildComponent from './scripts/build-component'
 import buildStyle from './scripts/build-style'
 import clear from './scripts/clear'
+import { createPath, publishDir } from './utils/paths'
 
 const program = new Command()
 const packageContent = fs.readFileSync('./package.json', {
@@ -35,6 +37,7 @@ program
   .action(async (_args) => {
     await buildComponent()
     await buildStyle()
+    setPackageJson()
   })
 
 program
@@ -45,3 +48,21 @@ program
   })
 
 program.parse()
+
+function setPackageJson() {
+  const pkgJson = { ...packageJson }
+  pkgJson.name = 'x-attempt-ui'
+  pkgJson.scripts.publish = 'npm publish'
+  fs.writeFile(
+    createPath(publishDir, 'package.json'),
+    JSON.stringify(pkgJson, null, 2),
+    'utf8',
+    (err) => {
+      if (!err)
+        return
+
+      consola.error('set package.json failed. \n')
+      consola.error(err)
+    },
+  )
+}

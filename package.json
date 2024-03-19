@@ -20,7 +20,8 @@
     "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
-    "build:style": "pnpm --filter @x-attempt/ui build:style"
+    "build:style": "pnpm --filter @x-attempt/ui build:style",
+    "publish": "pnpm --filter @x-attempt/ui/publish publish"
   },
   "dependencies": {
     "@x-attempt/ui": "workspace:*"
