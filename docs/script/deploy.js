@@ -8,4 +8,5 @@ function createNojekyllFile() {
   })
 }
 
+// 生成 .nojekyll 文件，用于通知github pages无需使用 Jekyll 处理
 createNojekyllFile()
