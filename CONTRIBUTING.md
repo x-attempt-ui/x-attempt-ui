@@ -104,6 +104,7 @@ PR 将由具备权限的贡献者 CR 后进行 merge，若提交的功能影响�
 - `fix(icon): resolve alignment issue in icon component`
 - `docs(upload): update README file`
 - `refactor(base): refactor router module`
+- `chore(base): update deploy config`
 
 更多请阅读：<https://www.conventionalcommits.org/zh-hans/v1.0.0/>
 
