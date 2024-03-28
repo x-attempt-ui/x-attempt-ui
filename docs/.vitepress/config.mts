@@ -45,5 +45,9 @@ export default defineConfig({
     footer: {
       copyright: 'Copyright © 2024-present XinXiaoIsMe',
     },
+
+    search: {
+      provider: 'local',
+    },
   },
 })
