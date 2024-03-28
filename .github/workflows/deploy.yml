@@ -37,12 +37,12 @@ jobs:
         with:
           node-version: 17.8.0
           cache: pnpm # or pnpm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
       - name: Setup pnpm
         uses: pnpm/action-setup@v3 # 安装pnpm并添加到环境变量
         with:
           version: 8.5.1 # 指定需要的 pnpm 版本
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # or pnpm install / yarn install / bun install
       - name: Build with VitePress
