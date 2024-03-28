@@ -10,7 +10,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "set:deploy": "node ./script/deploy"
+    "set:nojekyll": "node ./script/deploy"
   },
   "dependencies": {
     "vue": "^3.4.19"

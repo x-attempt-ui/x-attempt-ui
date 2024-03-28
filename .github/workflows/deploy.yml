@@ -48,7 +48,7 @@ jobs:
       - name: Build with VitePress
         run: |
           pnpm build:docs
-          pnpm set:deploy  # 通知githubpages不要使用Jekyll处理这个站点
+          pnpm set:nojekyll  # 通知githubpages不要使用Jekyll处理这个站点
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

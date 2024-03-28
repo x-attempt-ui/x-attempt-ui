@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
-    "build:docs": "pnpm --filter docs build",
+    "build:docs": "pnpm --filter docs build & pnpm --filter docs set:nojekyll",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
     "build:hooks": "pnpm --filter @x-attempt/hooks build",
