@@ -1,4 +1,5 @@
 import process from 'node:process'
+import { resolve } from 'node:path'
 import fs from 'fs-extra'
 
 // 创建组件模板
@@ -25,7 +26,6 @@ function createTemplate() {
   createVueTemplate(name, componentDesc)
   createSassTemplate(name)
   createDocsTemplate(name, componentDesc)
-  createTemplateTemplate(name, componentDesc)
 }
 
 function createVueTemplate() {
@@ -40,11 +40,7 @@ function createDocsTemplate() {
 
 }
 
-function createTemplateTemplate() {
-
-}
-
-function vueTemplate() {
+function vueTemplate(componentName) {
 
 }
 
@@ -62,5 +58,6 @@ function validateName(componentName) {
 }
 
 function validateExist(componentName) {
-
+  const path = resolve(process.cwd(), `packages/x-attempt-ui/src/components/${componentName}`)
+  return fs.pathExistsSync(path)
 }

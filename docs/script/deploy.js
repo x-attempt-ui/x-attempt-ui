@@ -1,8 +1,9 @@
-const { resolve } = require('node:path')
-const { writeFileSync } = require('node:fs')
+import { resolve } from 'node:path'
+import { writeFileSync } from 'node:fs'
+import { cwd } from 'node:process'
 
 function createNojekyllFile() {
-  const path = resolve(__dirname, '..', '.nojekyll')
+  const path = resolve(cwd(), '.nojekyll')
   writeFileSync(path, '', {
     encoding: 'utf8',
   })

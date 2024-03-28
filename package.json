@@ -18,12 +18,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
-    "build:docs": "pnpm --filter docs build & pnpm --filter docs set:nojekyll",
+    "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
     "build:hooks": "pnpm --filter @x-attempt/hooks build",
     "release-it": "pnpm --filter @x-attempt/ui release-it",
-    "new": "node scripts/new"
+    "new": "node scripts/new",
+    "set:nojekyll": "pnpm --filter docs set:nojekyll"
   },
   "dependencies": {
     "@x-attempt/hooks": "workspace:^",

@@ -1,0 +1,9 @@
+<svg width="37.552" height="49.97" data-bbox="14.154223955410203 14.046518741363599 377.6793512493823 65.6750896473377" version="1.1" viewBox="0 0 37.552 49.97" xmlns="http://www.w3.org/2000/svg">
+ <defs transform="matrix(.89639 0 0 .89639 26.524 26.524)" data-uid="o_fd4bf421i_8">
+  <linearGradient id="o_fd4bf421i_6" x1="9.3638" x2="23.962" y1="-1.9515" y2="-27.176" data-uid="o_fd4bf421i_13" gradientTransform="matrix(1.2892 0 0 1.7156 -2.7067 49.97)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#525fe9" data-uid="o_fd4bf421i_14" offset="0"/>
+   <stop stop-color="#01bff8" data-uid="o_fd4bf421i_15" offset="1"/>
+  </linearGradient>
+ </defs>
+ <path d="m6.7817 49.97h-6.7817l15.288-25.193-15.288-24.777h6.7817l12.284 19.988 11.704-19.988h6.7073l-15.274 25.059 15.348 24.911h-6.7817l-12.344-20.062z" fill="url(#o_fd4bf421i_6)" font-family="'DM Sans'" font-size="48px" font-weight="400" letter-spacing="-2" stroke-width="1.4872" data-fl-textpath="" data-uid="o_fd4bf421i_16" font-scale="contain" offset="0" space="preserve" text="X"/>
+</svg>

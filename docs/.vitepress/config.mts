@@ -1,16 +1,22 @@
 import { defineConfig } from 'vitepress'
+import componentConfig from './config/components.mjs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'X Attempt UI',
+  title: 'A Vue 3 UI Framework | X Attempt UI',
   base: '/x-attempt-ui/',
   description: 'An awesome vue component library!',
+  head: [['link', { rel: 'icon', href: '/x-attempt-ui/favicon.svg' }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指南', link: '/guide/install' },
       { text: '组件', link: '/component/overview' },
     ],
+
+    logo: 'logo.svg',
+
+    siteTitle: '',
 
     sidebar: [
       {
@@ -28,14 +34,16 @@ export default defineConfig({
       },
       {
         text: '基础组件',
-        items: [
-          { text: 'Button组件', link: '/component/button' },
-        ],
+        items: componentConfig,
       },
     ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/XinXiaoIsMe/x-attempt-ui' },
     ],
+
+    footer: {
+      copyright: 'Copyright © 2024-present XinXiaoIsMe',
+    },
   },
 })

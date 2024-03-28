@@ -48,6 +48,7 @@ jobs:
       - name: Build with VitePress
         run: |
           pnpm build:docs
+          pnpm build:nojekyll # set .nojekyll file
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
