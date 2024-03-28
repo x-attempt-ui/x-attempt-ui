@@ -1,13 +1,7 @@
-import type { App, Component } from 'vue'
-import XButton from './components/button'
+import type { App } from 'vue'
+import components from './components'
 
-export {
-  XButton,
-}
-
-const components: Component[] = [
-  XButton,
-]
+export * from './components'
 
 function install(app: App) {
   components.forEach((component) => {
