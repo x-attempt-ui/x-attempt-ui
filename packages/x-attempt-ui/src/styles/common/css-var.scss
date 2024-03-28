@@ -1,0 +1,17 @@
+@use "var.scss" as *;
+@use "../mixins/var.scss" as *;
+
+:root {
+  @include set-css-var-value(("color", "white"), $color-white);
+  @include set-css-var-value(("color", "black"), $color-black);
+
+  // Typography
+  @include set-component-css-var('font-size', $font-size);
+  @include set-component-css-var('font-family', $font-family);
+
+  // z-index --el-index-#{$type}
+  @include set-component-css-var('index', $z-index);
+
+  // --el-border-radius-#{$type}
+  @include set-component-css-var('border-radius', $border-radius);
+}

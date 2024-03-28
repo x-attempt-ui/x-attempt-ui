@@ -3,6 +3,7 @@ import { Command } from 'commander'
 import consola from 'consola'
 import buildComponent from './scripts/build-component'
 import buildStyle from './scripts/build-style'
+import buildHooks from './scripts/build-hooks'
 import clear from './scripts/clear'
 import { createPath, pkgDir } from './utils/paths'
 
@@ -29,6 +30,13 @@ program
   .description('build component style')
   .action((_args) => {
     buildStyle()
+  })
+
+program
+  .command('buildHooks')
+  .description('build hooks')
+  .action((_args) => {
+    buildHooks()
   })
 
 program

@@ -10,7 +10,8 @@
     "moduleResolution": "bundler",
 
     "paths": {
-      "@x-attempt/ui": ["../packages/x-attempt-ui"]
+      "@x-attempt/ui": ["../packages/x-attempt-ui"],
+      "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,

@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'X Attempt UI',
+  base: '/x-attempt-ui/docs/',
   description: 'An awesome vue component library!',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

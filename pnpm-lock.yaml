@@ -4,6 +4,9 @@ importers:
 
   .:
     dependencies:
+      '@x-attempt/hooks':
+        specifier: workspace:^
+        version: link:packages/x-attempt-hooks
       '@x-attempt/ui':
         specifier: workspace:*
         version: link:packages/x-attempt-ui
@@ -98,7 +101,17 @@ importers:
         specifier: 1.0.0-rc.44
         version: 1.0.0-rc.44(@algolia/client-search@4.22.1)(@types/node@20.11.24)(sass@1.71.1)(search-insights@2.13.0)(typescript@5.3.3)
 
+  packages/x-attempt-hooks:
+    dependencies:
+      vue:
+        specifier: ^3.2.0
+        version: 3.4.19(typescript@5.3.3)
+
   packages/x-attempt-ui:
+    dependencies:
+      vue:
+        specifier: ^3.2.0
+        version: 3.4.19(typescript@5.3.3)
     devDependencies:
       standard-version:
         specifier: ^9.5.0

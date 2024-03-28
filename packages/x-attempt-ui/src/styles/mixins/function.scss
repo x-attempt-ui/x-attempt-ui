@@ -1,0 +1,44 @@
+@use "config.scss" as *;
+
+// join var name
+// joinVarName(("button", "text-color")) => --x-button-text-color
+@function joinVarName ($list) {
+  $name: "--" + $namespace;
+  @each $item in $list {
+    @if $item != "" {
+      $name: $name + "-" + $item;
+    }
+  }
+  @return $name;
+}
+
+// get css var name
+// getCssVarName("button", "text-color") => --x-button-text-color
+@function getCssVarName ($arg...) {
+  @return joinVarName($arg);
+}
+
+// get css var
+// getCssVar("button", "text-color") => var(--x-button-text-color)
+@function getCssVar ($arg...) {
+  @return var(#{joinVarName($arg)});
+}
+
+// getCssVarWithDefault(("button", "text-color"), "red") => var(--x-button-text-color, red)
+@function getCssVarWithDefault ($args, $default) {
+  @return var(#{joinVarName($args)}, #{$default});
+}
+
+@function bem ($block, $element: "", $modifier: "") {
+  $name: $namespace + $common-separator + $block;
+
+  @if $element != "" {
+    $name: $name + $element-separator + $element;
+  }
+
+  @if $modifier != "" {
+    $name: $name + $modifier-separator + $modifier;
+  }
+
+  @return $name;
+}

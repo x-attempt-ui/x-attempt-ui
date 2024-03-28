@@ -1,12 +1,14 @@
-.x-button {
-  color: red;
-  border: 1px solid #ccc;
-  padding: 8px 10px;
-  border-radius: 4px;
-  font-size: 16px;
+@use "../../../styles/mixins/mixins.scss" as *;
+@use "../../../styles/common/var.scss" as *;
 
-  &:hover {
-    background-color: #ccc;
-    color: #fff;
+@include b(button) {
+  color: $color-black;
+
+  @include e(text) {
+    font-size: 16px;
+  }
+
+  @include m(primary) {
+    background-color: $color-primary;
   }
 }

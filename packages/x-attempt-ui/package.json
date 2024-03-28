@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "description": "A awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/XinXiaoIsMe/x-attempt-ui",
   "repository": {
     "type": "git",
@@ -40,6 +40,9 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
   "devDependencies": {
     "standard-version": "^9.5.0"

@@ -1,0 +1,26 @@
+{
+  "name": "@x-attempt/hooks",
+  "version": "0.0.1",
+  "description": "X Attempt UI composables",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "composables",
+    "hooks",
+    "x-attempt-hooks"
+  ],
+  "main": "index.js",
+  "module": "index.js",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "x-attempt-build buildHooks"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}

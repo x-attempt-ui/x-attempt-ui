@@ -21,9 +21,12 @@
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
-    "release-it": "pnpm --filter @x-attempt/ui release-it"
+    "build:hooks": "pnpm --filter @x-attempt/hooks build",
+    "release-it": "pnpm --filter @x-attempt/ui release-it",
+    "new": "node scripts/new"
   },
   "dependencies": {
+    "@x-attempt/hooks": "workspace:^",
     "@x-attempt/ui": "workspace:*"
   },
   "devDependencies": {
