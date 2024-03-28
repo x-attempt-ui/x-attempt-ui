@@ -28,6 +28,17 @@ async function buildComponent() {
       dts({
         tsconfigPath: createPath('./tsconfig.json'),
         outDir: [createPath(esDir), createPath(libDir)],
+        beforeWriteFile(filePath, content) {
+          const isEsModule = filePath.includes('/es/')
+          const finalContent = isEsModule
+            ? content.replace('@x-attempt/ui/src', 'x-attempt-ui/es')
+            : content.replace('x-attempt-ui/es', 'x-attempt-ui/lib')
+
+          return {
+            filePath,
+            content: finalContent,
+          }
+        },
       }),
     ],
     build: {

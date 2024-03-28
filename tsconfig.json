@@ -6,7 +6,8 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@x-attempt/ui": ["./packages/x-attempt-ui"]
+      "@x-attempt/ui": ["./packages/x-attempt-ui"],
+      "@x-attempt/hooks": ["./packages/x-attempt-hooks"]
     },
     "resolveJsonModule": true,
     "types": ["node", "vite/client"],

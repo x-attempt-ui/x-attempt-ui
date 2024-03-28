@@ -17,7 +17,7 @@
     "release:version": "pnpm --filter @x-attempt/ui release:version",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "pnpm clear & pnpm --filter @x-attempt/ui build & pnpm build:docs",
+    "build": "pnpm clear & pnpm --filter @x-attempt/ui build",
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
