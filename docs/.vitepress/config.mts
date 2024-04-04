@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
 import componentConfig from './config/components.mjs'
 
 // https://vitepress.dev/reference/site-config
@@ -52,6 +53,12 @@ export default defineConfig({
 
     search: {
       provider: 'local',
+    },
+  },
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+      md.use(componentPreview)
     },
   },
 })

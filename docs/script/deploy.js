@@ -9,5 +9,5 @@ function createNojekyllFile() {
   })
 }
 
-// 生成 .nojekyll 文件，用于通知github pages无需使用 Jekyll 处理
+// 只在github actions中运行，用于生成 .nojekyll 文件，用于通知github pages无需使用 Jekyll 处理，否则会丢失vitepress的样式
 createNojekyllFile()
