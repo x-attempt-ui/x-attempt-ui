@@ -111,7 +111,6 @@ PR 将由具备权限的贡献者 CR 后进行 merge，若提交的功能影响�
 ## 目录结构
 
 ```plaintext
-|- demo/                   # 组件库demo
 |- build/                  # 打包配置
 |- docs/                   # 组件库文档
 |- packages/               # 组件库开发目录
