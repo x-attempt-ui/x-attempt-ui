@@ -7,7 +7,10 @@ export default defineConfig({
   title: 'A Vue 3 UI Framework | X Attempt UI',
   base: '/x-attempt-ui/',
   description: 'An awesome vue component library!',
-  head: [['link', { rel: 'icon', href: '/x-attempt-ui/favicon.svg' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/x-attempt-ui/img/favicon.svg' }],
+    ['script', { src: '/x-attempt-ui/scripts/log.js' }],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -15,7 +18,7 @@ export default defineConfig({
       { text: '组件', link: '/component/overview' },
     ],
 
-    logo: 'logo.svg',
+    logo: '/img/logo.svg',
 
     siteTitle: '',
 
