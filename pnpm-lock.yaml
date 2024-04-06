@@ -32,6 +32,9 @@ importers:
 
   build:
     devDependencies:
+      '@types/clean-css':
+        specifier: ^4.2.11
+        version: registry.npmjs.org/@types/clean-css@4.2.11
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -64,7 +67,7 @@ importers:
         version: 1.71.1
       vite-plugin-dts:
         specifier: ^3.7.3
-        version: 3.7.3(typescript@5.3.3)(vite@5.1.4)
+        version: 3.7.3(@types/node@20.11.24)(typescript@5.3.3)(vite@5.1.4)
 
   docs:
     dependencies:
@@ -791,24 +794,24 @@ packages:
       call-bind: 1.0.7
     dev: true
 
-  /@microsoft/api-extractor-model@7.28.3:
+  /@microsoft/api-extractor-model@7.28.3(@types/node@20.11.24):
     resolution: {integrity: sha512-wT/kB2oDbdZXITyDh2SQLzaWwTOFbV326fP0pUwNW00WeliARs0qjmXBWmGWardEzp2U3/axkO3Lboqun6vrig==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.62.0
+      '@rushstack/node-core-library': 3.62.0(@types/node@20.11.24)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.39.0:
+  /@microsoft/api-extractor@7.39.0(@types/node@20.11.24):
     resolution: {integrity: sha512-PuXxzadgnvp+wdeZFPonssRAj/EW4Gm4s75TXzPk09h3wJ8RS3x7typf95B4vwZRrPTQBGopdUl+/vHvlPdAcg==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.28.3
+      '@microsoft/api-extractor-model': 7.28.3(@types/node@20.11.24)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.62.0
+      '@rushstack/node-core-library': 3.62.0(@types/node@20.11.24)
       '@rushstack/rig-package': 0.5.1
       '@rushstack/ts-command-line': 4.17.1
       colors: 1.2.5
@@ -993,7 +996,7 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@rushstack/node-core-library@3.62.0:
+  /@rushstack/node-core-library@3.62.0(@types/node@20.11.24):
     resolution: {integrity: sha512-88aJn2h8UpSvdwuDXBv1/v1heM6GnBf3RjEy6ZPP7UnzHNCqOHA2Ut+ScYUbXcqIdfew9JlTAe3g+cnX9xQ/Aw==}
     peerDependencies:
       '@types/node': '*'
@@ -1001,6 +1004,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
+      '@types/node': 20.11.24
       colors: 1.2.5
       fs-extra: 7.0.1
       import-lazy: 4.0.0
@@ -1412,7 +1416,7 @@ packages:
       '@babel/core': 7.24.0
       '@babel/plugin-transform-typescript': 7.23.6(@babel/core@7.24.0)
       '@vue/babel-plugin-jsx': 1.2.1(@babel/core@7.24.0)
-      vite: registry.npmjs.org/vite@5.1.4(sass@1.71.1)
+      vite: registry.npmjs.org/vite@5.1.4(@types/node@20.11.24)(sass@1.71.1)
       vue: registry.npmjs.org/vue@3.4.19(typescript@5.3.3)
     transitivePeerDependencies:
       - supports-color
@@ -1425,7 +1429,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: registry.npmjs.org/vite@5.1.4(sass@1.71.1)
+      vite: registry.npmjs.org/vite@5.1.4(@types/node@20.11.24)(sass@1.71.1)
       vue: registry.npmjs.org/vue@3.4.19(typescript@5.3.3)
 
   /@volar/language-core@1.11.1:
@@ -6482,7 +6486,7 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /vite-plugin-dts@3.7.3(typescript@5.3.3)(vite@5.1.4):
+  /vite-plugin-dts@3.7.3(@types/node@20.11.24)(typescript@5.3.3)(vite@5.1.4):
     resolution: {integrity: sha512-26eTlBYdpjRLWCsTJebM8vkCieE+p9gP3raf+ecDnzzK5E3FG6VE1wcy55OkRpfWWVlVvKkYFe6uvRHYWx7Nog==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -6492,13 +6496,13 @@ packages:
       vite:
         optional: true
     dependencies:
-      '@microsoft/api-extractor': 7.39.0
+      '@microsoft/api-extractor': 7.39.0(@types/node@20.11.24)
       '@rollup/pluginutils': 5.1.0
       '@vue/language-core': 1.8.27(typescript@5.3.3)
       debug: 4.3.4
       kolorist: 1.8.0
       typescript: registry.npmjs.org/typescript@5.3.3
-      vite: registry.npmjs.org/vite@5.1.4(sass@1.71.1)
+      vite: registry.npmjs.org/vite@5.1.4(@types/node@20.11.24)(sass@1.71.1)
       vue-tsc: 1.8.27(typescript@5.3.3)
     transitivePeerDependencies:
       - '@types/node'
@@ -7841,7 +7845,7 @@ packages:
     version: 5.26.5
     dev: true
 
-  registry.npmjs.org/vite@5.1.4(sass@1.71.1):
+  registry.npmjs.org/vite@5.1.4(@types/node@20.11.24)(sass@1.71.1):
     resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vite/-/vite-5.1.4.tgz}
     id: registry.npmjs.org/vite/5.1.4
     name: vite
@@ -7872,6 +7876,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.11.24
       esbuild: registry.npmjs.org/esbuild@0.19.12
       postcss: registry.npmjs.org/postcss@8.4.35
       rollup: registry.npmjs.org/rollup@4.12.0

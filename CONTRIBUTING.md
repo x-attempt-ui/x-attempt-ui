@@ -16,6 +16,8 @@
 5. 启动文档：`pnpm dev:docs`
 6. 在浏览器中访问：`http://localhost:5173/x-attempt-ui/`
 
+**注：1. 项目推荐使用corepack来管理包管理器，具体操作方式请看[包管理器的管理器corepack](https://juejin.cn/post/7189891752625438780)，mac如果遇到权限问题，在命令前面添加sudo即可。2. 如果要使用corepack，node版本应该 >= 16.9.0。**
+
 ## 如何贡献？
 
 为了维护组件库代码提交规范性，项目采用以下流程提交代码。

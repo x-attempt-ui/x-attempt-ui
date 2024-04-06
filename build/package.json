@@ -13,6 +13,7 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/clean-css": "^4.2.11",
     "@types/fs-extra": "^11.0.4",
     "@types/minify": "^9.1.4",
     "@vitejs/plugin-vue": "^5.0.4",
