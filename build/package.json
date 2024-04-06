@@ -14,8 +14,10 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
+    "@types/minify": "^9.1.4",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "clean-css": "^5.3.3",
     "commander": "^12.0.0",
     "consola": "^3.2.3",
     "fast-glob": "^3.3.2",

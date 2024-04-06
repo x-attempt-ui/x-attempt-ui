@@ -13,8 +13,8 @@
 2. 克隆 fork 后的项目到本地 `git clone https://github.com/xxxxxx/x-attempt-ui.git`
 3. 切换至 dev 分支 `git checkout dev`
 4. 安装依赖：`pnpm i`
-5. 启动开发服务器：`npm run dev:demo`
-6. 在浏览器中访问：`http://localhost:5173`
+5. 启动文档：`pnpm dev:docs`
+6. 在浏览器中访问：`http://localhost:5173/x-attempt-ui/`
 
 ## 如何贡献？
 

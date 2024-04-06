@@ -1,10 +1,8 @@
 import fs from 'fs-extra'
-import { createPath, esDir, libDir, pkgDir } from '../../utils/paths'
+import { createPath, publishDir } from '../../utils/paths'
 
 function clear() {
-  fs.removeSync(createPath(esDir))
-  fs.removeSync(createPath(libDir))
-  fs.removeSync(createPath(pkgDir))
+  fs.removeSync(createPath(publishDir))
 }
 
 export default clear

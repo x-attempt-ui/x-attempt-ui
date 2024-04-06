@@ -9,9 +9,9 @@
   @include set-component-css-var('font-size', $font-size);
   @include set-component-css-var('font-family', $font-family);
 
-  // z-index --el-index-#{$type}
+  // z-index --x-index-#{$type}
   @include set-component-css-var('index', $z-index);
 
-  // --el-border-radius-#{$type}
+  // --x-border-radius-#{$type}
   @include set-component-css-var('border-radius', $border-radius);
 }

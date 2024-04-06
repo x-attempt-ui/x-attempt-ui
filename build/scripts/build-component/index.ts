@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import { consola } from 'consola'
-import { createPath, esDir, libDir, srcDir } from '../../utils/paths'
+import { createPath, distDir, esDir, indexDir, libDir, srcDir } from '../../utils/paths'
 
 async function buildComponent() {
   consola.start('build component module...')
@@ -71,6 +71,32 @@ async function buildComponent() {
             entryFileNames: `[name].js`,
           },
         ],
+      },
+    },
+  })
+
+  await build({
+    plugins: [
+      vue(),
+      vueJsx(),
+    ],
+    build: {
+      minify: true,
+      sourcemap: true,
+      lib: {
+        entry: indexDir,
+        name: 'XAttemptUI',
+        formats: ['iife'],
+      },
+      rollupOptions: {
+        external: ['vue'],
+        treeshake: true,
+        output: {
+          dir: createPath(distDir),
+          globals: {
+            vue: 'Vue',
+          },
+        },
       },
     },
   })

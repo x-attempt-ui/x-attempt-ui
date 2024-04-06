@@ -15,7 +15,8 @@
   "jsdelivr": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "x-attempt-build buildHooks"
+    "build": "x-attempt-build buildHooks",
+    "clear": "x-attempt-build clear"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

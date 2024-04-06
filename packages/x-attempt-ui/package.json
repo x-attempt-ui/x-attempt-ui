@@ -20,14 +20,19 @@
     "typescript"
   ],
   "sideEffects": [
+    "dist/*",
     "es/**/style/*",
     "lib/**/style/*",
+    "*.css",
     "*.scss"
   ],
   "main": "lib/index.js",
   "module": "es/index.mjs",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
   "types": "es/index.d.ts",
   "files": [
+    "dist",
     "es",
     "lib"
   ],

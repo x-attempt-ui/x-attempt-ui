@@ -3,8 +3,8 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "author": "",
-  "license": "ISC",
+  "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
+  "license": "MIT",
   "keywords": [],
   "main": "index.js",
   "scripts": {
@@ -12,11 +12,11 @@
     "preinstall": "npx only-allow pnpm",
     "dev:docs": "pnpm --filter docs dev",
     "preview:docs": "pnpm --filter docs preview",
-    "clear": "pnpm --filter @x-attempt/ui clear",
+    "clear": "pnpm --filter @x-attempt/ui clear & pnpm --filter @x-attempt/hooks clear",
     "release:version": "pnpm --filter @x-attempt/ui release:version",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "pnpm clear & pnpm --filter @x-attempt/ui build",
+    "build": "pnpm clear && pnpm --filter @x-attempt/ui build",
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
@@ -26,7 +26,7 @@
     "set:nojekyll": "pnpm --filter docs set:nojekyll"
   },
   "dependencies": {
-    "@x-attempt/hooks": "workspace:^",
+    "@x-attempt/hooks": "workspace:*",
     "@x-attempt/ui": "workspace:*"
   },
   "devDependencies": {

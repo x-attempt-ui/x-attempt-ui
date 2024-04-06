@@ -2,7 +2,8 @@ import fs from 'fs-extra'
 import { glob } from 'fast-glob'
 import sass from 'sass'
 import { consola } from 'consola'
-import { createPath, esDir, libDir, srcDir } from '../../utils/paths'
+import CleanCss from 'clean-css'
+import { createPath, distDir, esDir, libDir, srcDir } from '../../utils/paths'
 
 async function buildStyle() {
   consola.start('build component style...')
@@ -13,6 +14,7 @@ async function buildStyle() {
   const files = glob.sync('**/*.{scss,css}', {
     cwd: srcDir,
   })
+  const cleanCss = new CleanCss()
 
   for (const filename of files) {
     const absolutePath = createPath(`src/${filename}`)
@@ -26,10 +28,16 @@ async function buildStyle() {
     // 打包scss文件
     const scssContent = await sass.compileAsync(absolutePath)
     const cssFilename = filename.replace('.scss', '.css')
-    fs.writeFileSync(createPath(`${esDir}/${cssFilename}`), scssContent.css)
-    fs.writeFileSync(createPath(`${libDir}/${cssFilename}`), scssContent.css)
+    const css = cleanCss.minify(scssContent.css).styles
+    fs.writeFileSync(createPath(`${esDir}/${cssFilename}`), css)
+    fs.writeFileSync(createPath(`${libDir}/${cssFilename}`), css)
   }
+  await copyIndexFile()
   consola.success('build component style success!')
+}
+
+async function copyIndexFile() {
+  fs.copySync(createPath(`${esDir}/index.css`), createPath(`${distDir}/index.css`))
 }
 
 export default buildStyle
