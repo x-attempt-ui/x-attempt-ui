@@ -5,7 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import XAttemptUI from '@x-attempt/ui/src'
 import '@x-attempt/ui/src/index.scss'
-import { AntDesignContainer, ElementPlusContainer, NaiveUIContainer } from '@vitepress-demo-preview/component'
+import { ElementPlusContainer } from '@vitepress-demo-preview/component'
 import '@vitepress-demo-preview/component/dist/style.css'
 
 export default {
@@ -17,6 +17,6 @@ export default {
   },
   enhanceApp({ app }) {
     app.use(XAttemptUI)
-    app.component('demo-preview', AntDesignContainer)
+    app.component('demo-preview', ElementPlusContainer)
   },
 } satisfies Theme

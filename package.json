@@ -9,7 +9,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "prepare": "pnpm --filter @x-attempt/build build",
+    "prepare": "husky & pnpm --filter @x-attempt/build build",
     "preinstall": "npx only-allow pnpm",
     "dev:docs": "pnpm --filter docs dev",
     "preview:docs": "pnpm --filter docs preview",

@@ -65,7 +65,7 @@ function doBuildBundle(entry: string[], minify = false) {
 
 async function doBuildIIFEBundle(entry: string[], minify = false) {
   const filename = `index.iife.${minify ? 'min.' : ''}js`
-  await fs.emptyDir(createPath('temp'))
+  await fs.emptyDir(createPath(publishDir, 'temp'))
   await build({
     plugins: [
       vue(),
