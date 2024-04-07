@@ -10,6 +10,9 @@ importers:
       '@x-attempt/ui':
         specifier: workspace:*
         version: link:packages/x-attempt-ui
+      x-attempt-icons:
+        specifier: ^0.0.5
+        version: registry.npmjs.org/x-attempt-icons@0.0.5(vue@3.4.19)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.8.0
@@ -9074,6 +9077,17 @@ packages:
       string-width: registry.npmjs.org/string-width@4.2.3
       strip-ansi: registry.npmjs.org/strip-ansi@6.0.1
     dev: true
+
+  registry.npmjs.org/x-attempt-icons@0.0.5(vue@3.4.19):
+    resolution: {integrity: sha512-SMKnCdayQqd7030GmwpxzSjQb2JHE7Kff5sm0Oteis2P7Q8ulXYKCbZZMR/IijsxRL58Bj6PL56TvheMPn84Ew==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/x-attempt-icons/-/x-attempt-icons-0.0.5.tgz}
+    id: registry.npmjs.org/x-attempt-icons/0.0.5
+    name: x-attempt-icons
+    version: 0.0.5
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: registry.npmjs.org/vue@3.4.19(typescript@5.3.3)
+    dev: false
 
   registry.npmjs.org/xtend@4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz}

@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@x-attempt/hooks": "workspace:*",
-    "@x-attempt/ui": "workspace:*"
+    "@x-attempt/ui": "workspace:*",
+    "x-attempt-icons": "^0.0.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.0",
