@@ -2,9 +2,9 @@
   "name": "docs",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
+  "description": "X Attempt UI docs",
+  "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
+  "license": "MIT",
   "keywords": [],
   "main": "index.js",
   "scripts": {

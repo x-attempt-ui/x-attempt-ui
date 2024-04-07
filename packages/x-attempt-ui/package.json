@@ -2,7 +2,7 @@
   "name": "@x-attempt/ui",
   "type": "module",
   "version": "0.0.2",
-  "description": "A awesome vue component library.",
+  "description": "An awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "MIT",
   "homepage": "https://xinxiaoisme.github.io/x-attempt-ui/",
@@ -48,8 +48,5 @@
   },
   "peerDependencies": {
     "vue": "^3.2.0"
-  },
-  "devDependencies": {
-    "standard-version": "^9.5.0"
   }
 }

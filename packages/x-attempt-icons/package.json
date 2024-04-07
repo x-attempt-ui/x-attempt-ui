@@ -1,0 +1,29 @@
+{
+  "name": "@x-attempt/icons",
+  "version": "0.0.4",
+  "description": "X Attempt UI icons",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "svg",
+    "icons",
+    "x-attempt-ui",
+    "x-attempt-icons"
+  ],
+  "main": "index.js",
+  "module": "index.esm.js",
+  "unpkg": "index.iife.min.js",
+  "jsdelivr": "index.iife.min.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "gen:components": "tsx scripts/generate.ts",
+    "build": "x-attempt-build buildIcons",
+    "clear": "x-attempt-build clear"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}
