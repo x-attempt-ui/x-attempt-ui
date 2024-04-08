@@ -1,0 +1,2 @@
+# npx commitlint --edit
+node ./.husky/scripts/verifyCommitMsg.js
