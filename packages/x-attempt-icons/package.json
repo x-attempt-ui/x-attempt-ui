@@ -1,6 +1,6 @@
 {
   "name": "@x-attempt/icons",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "X Attempt UI icons",
   "license": "MIT",
   "keywords": [
@@ -15,10 +15,18 @@
   "unpkg": "index.iife.min.js",
   "jsdelivr": "index.iife.min.js",
   "types": "types/index.d.ts",
+  "files": [
+    "index.esm.js",
+    "index.iife.js",
+    "index.iife.min.js",
+    "index.js",
+    "types"
+  ],
   "scripts": {
     "gen:components": "tsx scripts/generate.ts",
     "build": "x-attempt-build buildIcons",
-    "clear": "x-attempt-build clear"
+    "clear": "x-attempt-build clear",
+    "release": "pnpm bumpp && node publish/release.mjs"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
