@@ -46,9 +46,9 @@ function formatCode(code: string, parser: BuiltInParserName = 'typescript') {
 
 function generateIndexFile(files: string[]) {
   const [filenames, componentNames] = getName(files)
-  const content = filenames.map((filename, i) => {
+  const content = `${filenames.map((filename, i) => {
     return `export { default as ${componentNames[i]} } from './${filename}.vue'`
-  }).join('\n')
+  }).join('\n')}\n`
   fs.writeFileSync(resolve(componentDir, 'index.ts'), content, 'utf8')
 }
 

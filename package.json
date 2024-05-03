@@ -17,19 +17,22 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "gen:icons": "pnpm --filter @x-attempt/icons gen:components",
-    "build": "pnpm clear && pnpm --filter @x-attempt/ui build",
+    "build": "pnpm clear && pnpm --filter @x-attempt/hooks build && pnpm --filter @x-attempt/ui build",
     "build:docs": "pnpm --filter docs build",
     "build:comp": "pnpm --filter @x-attempt/ui build:comp",
     "build:style": "pnpm --filter @x-attempt/ui build:style",
     "build:hooks": "pnpm --filter @x-attempt/hooks build",
     "build:icons": "pnpm gen:icons & pnpm --filter @x-attempt/icons build",
     "new": "node scripts/new",
-    "set:nojekyll": "pnpm --filter docs set:nojekyll"
+    "set:nojekyll": "pnpm --filter docs set:nojekyll",
+    "release": "pnpm build && pnpm --filter @x-attempt/ui release",
+    "release:hooks": "pnpm build:hooks && pnpm --filter @x-attempt/hooks release",
+    "release:icons": "pnpm build:icons && pnpm --filter @x-attempt/icons release"
   },
   "dependencies": {
     "@x-attempt/hooks": "workspace:*",
-    "@x-attempt/ui": "workspace:*",
-    "x-attempt-icons": "^0.0.5"
+    "@x-attempt/icons": "workspace:*",
+    "@x-attempt/ui": "workspace:*"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.0",
@@ -39,6 +42,7 @@
     "@types/node": "^20.11.24",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "bumpp": "^9.4.0",
     "chalk": "^5.3.0",
     "clean-css": "^5.3.3",
     "commander": "^12.0.0",

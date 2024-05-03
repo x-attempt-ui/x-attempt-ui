@@ -3,22 +3,18 @@ import { glob } from 'fast-glob'
 import fs from 'fs-extra'
 import dts from 'vite-plugin-dts'
 import { consola } from 'consola'
-import { createPath, pkgDir, publishDir, root } from '../../utils/paths'
-
-const packageContent = fs.readFileSync(createPath('package.json'), {
-  encoding: 'utf-8',
-})
-const packageJson: Record<string, any> = JSON.parse(packageContent)
+import { createPath, distDir, root } from '../../utils/paths'
 
 async function buildHooks() {
   consola.start('build hooks...')
 
-  await fs.emptyDir(publishDir)
+  await fs.emptyDir(distDir)
   const entry = [
     ...glob
       .sync('**/*.ts', {
         absolute: true,
         cwd: root,
+        ignore: ['bump.config.ts', 'node_modules'],
       }),
   ]
 
@@ -26,7 +22,7 @@ async function buildHooks() {
     plugins: [
       dts({
         tsconfigPath: createPath('./tsconfig.json'),
-        outDir: [createPath(publishDir)],
+        outDir: createPath(distDir, 'types'),
       }),
     ],
     build: {
@@ -41,7 +37,7 @@ async function buildHooks() {
         output: [
           {
             format: 'esm',
-            dir: createPath(publishDir),
+            dir: distDir,
             exports: undefined,
             preserveModules: true,
             preserveModulesRoot: root,
@@ -52,26 +48,7 @@ async function buildHooks() {
     },
   })
 
-  setPackageJson()
-
   consola.success('build hooks success!')
-}
-
-function setPackageJson() {
-  const pkgJson = { ...packageJson }
-  pkgJson.name = 'x-attempt-hooks'
-  fs.writeFile(
-    createPath(pkgDir),
-    JSON.stringify(pkgJson, null, 2),
-    'utf8',
-    (err) => {
-      if (!err)
-        return
-
-      consola.error('set package.json failed. \n')
-      consola.error(err)
-    },
-  )
 }
 
 export default buildHooks

@@ -1,4 +1,4 @@
-import { withInstall } from '@x-attempt/ui/src/utils'
+import { withInstall } from '../../../src/utils'
 import Button from './src/button.vue'
 
 export const XButton = withInstall(Button)

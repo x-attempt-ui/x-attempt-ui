@@ -10,14 +10,15 @@ import { createPath, distDir, esDir, indexDir, libDir, srcDir } from '../../util
 async function buildComponent() {
   consola.start('build component module...')
 
-  await fs.emptyDir(createPath('publish'))
-  await fs.emptyDir(createPath('publish/es'))
-  await fs.emptyDir(createPath('publish/lib'))
+  await fs.emptyDir(distDir)
+  await fs.emptyDir(esDir)
+  await fs.emptyDir(libDir)
   const entry = [
     ...glob
       .sync('**/*.{ts,vue}', {
         absolute: true,
         cwd: srcDir,
+        ignore: ['node_modules'],
       }),
   ]
 
@@ -27,15 +28,15 @@ async function buildComponent() {
       vueJsx(),
       dts({
         tsconfigPath: createPath('./tsconfig.json'),
-        outDir: [createPath(esDir), createPath(libDir)],
+        outDir: [esDir, libDir],
         beforeWriteFile(filePath, content) {
           const isEsModule = filePath.includes('/es/')
           // vite-plugin-dts无法识别软连接路径，需要手动将其转化为正确的路径，由于插件
           // 只会转化一遍，第一次在生成es module产物时已经将软连接路径转为es产物对应的
           // 路径，在第二次生成lib产物时需要将es产物路径转化为正确的lib产物路径
           const finalContent = isEsModule
-            ? content.replace('@x-attempt/ui/src', 'x-attempt-ui/es')
-            : content.replace('x-attempt-ui/es', 'x-attempt-ui/lib')
+            ? content.replace('@x-attempt/ui/src', '@x-attempt/ui/es')
+            : content.replace('x-attempt-ui/es', '@x-attempt/ui/lib')
 
           return {
             filePath,
@@ -56,7 +57,7 @@ async function buildComponent() {
         output: [
           {
             format: 'esm',
-            dir: createPath(esDir),
+            dir: esDir,
             exports: undefined,
             preserveModules: true,
             preserveModulesRoot: srcDir,
@@ -64,7 +65,7 @@ async function buildComponent() {
           },
           {
             format: 'cjs',
-            dir: createPath(libDir),
+            dir: libDir,
             exports: 'named',
             preserveModules: true,
             preserveModulesRoot: srcDir,
@@ -93,7 +94,7 @@ async function buildComponent() {
         external: ['vue'],
         treeshake: true,
         output: {
-          dir: createPath(distDir),
+          dir: distDir,
           globals: {
             vue: 'Vue',
           },

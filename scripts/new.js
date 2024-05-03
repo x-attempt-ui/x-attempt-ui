@@ -131,7 +131,7 @@ function vueIndexTemplate(componentName) {
   const camelCaseName = getCamelCaseName(componentName)
   const compName = `X${camelCaseName}`
 
-  return `import { withInstall } from '@x-attempt/ui/src/utils'
+  return `import { withInstall } from '../../../src/utils'
 import ${camelCaseName} from './src/${componentName}.vue'
 
 export const ${compName} = withInstall(${camelCaseName})

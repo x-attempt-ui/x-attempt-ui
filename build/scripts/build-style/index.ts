@@ -13,6 +13,7 @@ async function buildStyle() {
 
   const files = glob.sync('**/*.{scss,css}', {
     cwd: srcDir,
+    ignore: ['node_modules'],
   })
   const cleanCss = new CleanCss()
 

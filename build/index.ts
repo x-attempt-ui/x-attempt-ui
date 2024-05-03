@@ -1,12 +1,10 @@
 import fs from 'node:fs'
 import { Command } from 'commander'
-import consola from 'consola'
 import buildComponent from './scripts/build-component'
 import buildStyle from './scripts/build-style'
 import buildHooks from './scripts/build-hooks'
 import buildIcons from './scripts/build-icons'
 import clear from './scripts/clear'
-import { createPath, pkgDir } from './utils/paths'
 
 const program = new Command()
 const packageContent = fs.readFileSync('./package.json', {
@@ -36,15 +34,15 @@ program
 program
   .command('buildHooks')
   .description('build hooks')
-  .action((_args) => {
-    buildHooks()
+  .action(async (_args) => {
+    await buildHooks()
   })
 
 program
   .command('buildIcons')
   .description('build icons')
-  .action((_args) => {
-    buildIcons()
+  .action(async (_args) => {
+    await buildIcons()
   })
 
 program
@@ -53,7 +51,6 @@ program
   .action(async (_args) => {
     await buildComponent()
     await buildStyle()
-    setPackageJson()
   })
 
 program
@@ -64,21 +61,3 @@ program
   })
 
 program.parse()
-
-function setPackageJson() {
-  const pkgJson = { ...packageJson }
-  pkgJson.name = 'x-attempt-ui'
-  pkgJson.scripts.publish = 'release-it'
-  fs.writeFile(
-    createPath(pkgDir),
-    JSON.stringify(pkgJson, null, 2),
-    'utf8',
-    (err) => {
-      if (!err)
-        return
-
-      consola.error('set package.json failed. \n')
-      consola.error(err)
-    },
-  )
-}

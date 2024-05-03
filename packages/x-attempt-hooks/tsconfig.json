@@ -17,5 +17,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "exclude": ["dist", "es", "lib"]
+  "exclude": ["dist", "bump.config.ts"]
 }
