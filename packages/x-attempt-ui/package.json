@@ -1,7 +1,7 @@
 {
   "name": "@x-attempt/ui",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "An awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "MIT",
@@ -16,21 +16,64 @@
   },
   "keywords": [
     "vue",
-    "x-attempt-ui",
+    "@x-attempt/ui",
     "typescript"
   ],
   "sideEffects": [
     "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
+    "es/**/styles/*",
+    "lib/**/styles/*",
     "*.css",
     "*.scss"
   ],
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./es": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs"
+    },
+    "./lib": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.js"
+    },
+    "./es/*": {
+      "types": [
+        "./es/components/*.d.ts",
+        "./es/components/*/index.d.ts"
+      ],
+      "import": "./es/index.mjs"
+    },
+    "./lib/*": {
+      "types": [
+        "./lib/components/*.d.ts",
+        "./lib/components/*/index.d.ts"
+      ],
+      "require": "./lib/index.js"
+    },
+    "./es/*.mjs": {
+      "types": "./es/components/*.d.ts",
+      "import": "./es/components/*.mjs"
+    },
+    "./lib/*.js": {
+      "types": "./lib/components/*.js",
+      "require": "./lib/components/*.d.ts"
+    },
+    "./style": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
+    },
+    "./*": "./*"
+  },
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "unpkg": "dist/index.js",
   "jsdelivr": "dist/index.js",
   "types": "es/index.d.ts",
+  "style": "dist/index.css",
   "files": [
     "dist",
     "es",
@@ -41,7 +84,7 @@
     "build:comp": "x-attempt-build buildComp",
     "build:style": "x-attempt-build buildStyle",
     "clear": "x-attempt-build clear",
-    "release": "pnpm bumpp && node publish/release.mjs"
+    "release": "pnpm bumpp && npm publish --access public"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
