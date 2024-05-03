@@ -7,16 +7,20 @@
     "vue",
     "composables",
     "hooks",
-    "x-attempt-hooks"
+    "@x-attempt/hooks"
   ],
-  "main": "index.js",
-  "module": "index.js",
-  "unpkg": "index.js",
-  "jsdelivr": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "x-attempt-build buildHooks",
-    "clear": "x-attempt-build clear"
+    "clear": "x-attempt-build clear",
+    "release": "pnpm bumpp && npm publish --access public"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
