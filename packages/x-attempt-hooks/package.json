@@ -9,10 +9,10 @@
     "hooks",
     "@x-attempt/hooks"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
+  "unpkg": "dist/src/index.js",
+  "jsdelivr": "dist/src/index.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist"
