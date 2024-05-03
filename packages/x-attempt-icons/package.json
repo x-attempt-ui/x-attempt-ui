@@ -22,7 +22,7 @@
     "gen:components": "tsx scripts/generate.ts",
     "build": "x-attempt-build buildIcons",
     "clear": "x-attempt-build clear",
-    "release": "pnpm bumpp && npm publish --access publish"
+    "release": "pnpm bumpp && npm publish --access public"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
