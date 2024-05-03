@@ -9,6 +9,18 @@
     "hooks",
     "@x-attempt/hooks"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/src/index.js",
+      "require": "./dist/src/index.js"
+    },
+    "./*": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/src/*.js",
+      "require": "./dist/src/*.js"
+    }
+  },
   "main": "dist/src/index.js",
   "module": "dist/src/index.js",
   "unpkg": "dist/src/index.js",
