@@ -1,26 +1,22 @@
 {
   "name": "@x-attempt/icons",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "description": "X Attempt UI icons",
   "license": "MIT",
   "keywords": [
     "vue",
     "svg",
     "icons",
-    "x-attempt-ui",
-    "x-attempt-icons"
+    "@x-attempt/ui",
+    "@x-attempt/icons"
   ],
-  "main": "index.js",
-  "module": "index.esm.js",
-  "unpkg": "index.iife.min.js",
-  "jsdelivr": "index.iife.min.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.iife.min.js",
+  "jsdelivr": "dist/index.iife.min.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "index.esm.js",
-    "index.iife.js",
-    "index.iife.min.js",
-    "index.js",
-    "types"
+    "dist"
   ],
   "scripts": {
     "gen:components": "tsx scripts/generate.ts",
