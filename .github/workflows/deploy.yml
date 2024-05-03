@@ -48,6 +48,10 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # or pnpm install / yarn install / bun install
+      - name: Install rimraf
+        run: pnpm i rimraf -g
+      - name: Delete cache
+        run: rimraf docs/.vitepress/cache
       - name: Build with VitePress
         run: |
           pnpm build:docs
