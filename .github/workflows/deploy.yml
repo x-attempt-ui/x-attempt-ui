@@ -43,15 +43,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 17.8.0
-          cache: pnpm # or pnpm / yarn
+          cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
-        run: pnpm install # or pnpm install / yarn install / bun install
-      - name: Install rimraf
-        run: pnpm i rimraf -g
-      - name: Delete cache
-        run: rimraf docs/.vitepress/cache
+        run: pnpm install
+      - name: Build X Attempt UI Library
+        run: pnpm build
       - name: Build with VitePress
         run: |
           pnpm build:docs
