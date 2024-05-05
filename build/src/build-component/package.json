@@ -1,7 +1,7 @@
 {
   "name": "@x-attempt/ui",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "MIT",
