@@ -1,0 +1,31 @@
+{
+  "name": "@x-attempt/icons",
+  "version": "0.0.2",
+  "description": "X Attempt UI icons",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "svg",
+    "icons",
+    "@x-attempt/ui",
+    "@x-attempt/icons"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.iife.min.js",
+  "jsdelivr": "dist/index.iife.min.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "release": "bumpp && tsx update-version && npm publish --access public"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}
