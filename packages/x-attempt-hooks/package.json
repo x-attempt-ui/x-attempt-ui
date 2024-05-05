@@ -1,6 +1,6 @@
 {
   "name": "@x-attempt/hooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "X Attempt UI composables",
   "license": "MIT",
   "keywords": [
@@ -9,35 +9,6 @@
     "hooks",
     "@x-attempt/hooks"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/src/index.js",
-      "require": "./dist/src/index.js"
-    },
-    "./*": {
-      "types": "./dist/types/*.d.ts",
-      "import": "./dist/src/*.js",
-      "require": "./dist/src/*.js"
-    }
-  },
-  "main": "dist/src/index.js",
-  "module": "dist/src/index.js",
-  "unpkg": "dist/src/index.js",
-  "jsdelivr": "dist/src/index.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "x-attempt-build buildHooks",
-    "clear": "x-attempt-build clear",
-    "release": "pnpm bumpp && npm publish --access public"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  }
+  "main": "src/index.js",
+  "module": "src/index.ts"
 }

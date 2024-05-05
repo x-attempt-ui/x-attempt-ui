@@ -1,7 +1,7 @@
 {
   "name": "@x-attempt/ui",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An awesome vue component library.",
   "author": "XinXiaoIsMe https://github.com/XinXiaoIsMe",
   "license": "MIT",
@@ -19,77 +19,6 @@
     "@x-attempt/ui",
     "typescript"
   ],
-  "sideEffects": [
-    "dist/*",
-    "es/**/styles/*",
-    "lib/**/styles/*",
-    "*.css",
-    "*.scss"
-  ],
-  "exports": {
-    ".": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.mjs",
-      "require": "./lib/index.js"
-    },
-    "./es": {
-      "types": "./es/index.d.ts",
-      "import": "./es/index.mjs"
-    },
-    "./lib": {
-      "types": "./lib/index.d.ts",
-      "require": "./lib/index.js"
-    },
-    "./es/*": {
-      "types": [
-        "./es/components/*.d.ts",
-        "./es/components/*/index.d.ts"
-      ],
-      "import": "./es/index.mjs"
-    },
-    "./lib/*": {
-      "types": [
-        "./lib/components/*.d.ts",
-        "./lib/components/*/index.d.ts"
-      ],
-      "require": "./lib/index.js"
-    },
-    "./es/*.mjs": {
-      "types": "./es/components/*.d.ts",
-      "import": "./es/components/*.mjs"
-    },
-    "./lib/*.js": {
-      "types": "./lib/components/*.js",
-      "require": "./lib/components/*.d.ts"
-    },
-    "./style": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
-    },
-    "./*": "./*"
-  },
-  "main": "lib/index.js",
-  "module": "es/index.mjs",
-  "unpkg": "dist/index.js",
-  "jsdelivr": "dist/index.js",
-  "types": "es/index.d.ts",
-  "style": "dist/index.css",
-  "files": [
-    "dist",
-    "es",
-    "lib"
-  ],
-  "scripts": {
-    "build": "x-attempt-build build",
-    "build:comp": "x-attempt-build buildComp",
-    "build:style": "x-attempt-build buildStyle",
-    "clear": "x-attempt-build clear",
-    "release": "pnpm bumpp && npm publish --access public"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  }
+  "main": "src/index.ts",
+  "module": "src/index.ts"
 }

@@ -6,6 +6,11 @@ export default antfu({
       'vue/block-order': ['off'],
     },
   },
+  stylistic: {
+    overrides: {
+      'style/eol-last': ['warn'],
+    },
+  },
 }, {
   ignores: ['packages/x-attempt-icons/components/*.vue'],
 })

@@ -1,15 +1,27 @@
-import { resolve } from 'node:path'
+import path, { resolve } from 'node:path'
 import { build } from 'vite'
 import fs from 'fs-extra'
 import dts from 'vite-plugin-dts'
 import { consola } from 'consola'
 import vue from '@vitejs/plugin-vue'
-import { createPath, distDir, root } from '../../utils/paths'
+import { usePath } from '../../utils/paths'
 
-async function buildHooks() {
+const {
+  getRoot,
+  getOutputPath,
+  getTsConfigPath,
+} = usePath('x-attempt-icons', 'build-icons')
+
+const root = getRoot()
+const outputPath = getOutputPath()
+const tsConfigPath = getTsConfigPath()
+
+buildIcons()
+
+async function buildIcons() {
   consola.start('build icons...')
 
-  await fs.emptyDir(distDir)
+  await fs.emptyDir(outputPath)
   const entry = [
     resolve(root, 'index.ts'),
   ]
@@ -26,8 +38,8 @@ function doBuildBundle(entry: string[], minify = false) {
     plugins: [
       vue(),
       dts({
-        tsconfigPath: createPath('./tsconfig.json'),
-        outDir: [createPath(distDir, 'types')],
+        tsconfigPath: tsConfigPath,
+        outDir: [path.resolve(outputPath, 'types')],
         exclude: 'scripts/**',
       }),
     ],
@@ -43,12 +55,12 @@ function doBuildBundle(entry: string[], minify = false) {
         output: [
           {
             format: 'esm',
-            dir: distDir,
+            dir: outputPath,
             exports: undefined,
           },
           {
             format: 'cjs',
-            dir: distDir,
+            dir: outputPath,
             exports: undefined,
           },
         ],
@@ -59,7 +71,7 @@ function doBuildBundle(entry: string[], minify = false) {
 
 async function doBuildIIFEBundle(entry: string[], minify = false) {
   const filename = `index.iife.${minify ? 'min.' : ''}js`
-  await fs.emptyDir(createPath(distDir, 'temp'))
+  await fs.emptyDir(path.resolve(outputPath, 'temp'))
   await build({
     plugins: [
       vue(),
@@ -77,7 +89,7 @@ async function doBuildIIFEBundle(entry: string[], minify = false) {
         external: ['vue'],
         treeshake: true,
         output: {
-          dir: createPath(distDir, 'temp'),
+          dir: path.resolve(outputPath, 'temp'),
           globals: {
             vue: 'Vue',
           },
@@ -85,8 +97,6 @@ async function doBuildIIFEBundle(entry: string[], minify = false) {
       },
     },
   })
-  await fs.move(createPath(distDir, 'temp', filename), createPath(distDir, filename))
-  await fs.remove(createPath(distDir, 'temp'))
+  await fs.move(path.resolve(outputPath, 'temp', filename), path.resolve(outputPath, filename))
+  await fs.remove(path.resolve(outputPath, 'temp'))
 }
-
-export default buildHooks

@@ -1,6 +1,6 @@
 {
   "name": "@x-attempt/icons",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "X Attempt UI icons",
   "license": "MIT",
   "keywords": [
@@ -10,24 +10,6 @@
     "@x-attempt/ui",
     "@x-attempt/icons"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "unpkg": "dist/index.iife.min.js",
-  "jsdelivr": "dist/index.iife.min.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "gen:components": "tsx scripts/generate.ts",
-    "build": "x-attempt-build buildIcons",
-    "clear": "x-attempt-build clear",
-    "release": "pnpm bumpp && npm publish --access public"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  }
+  "main": "index.ts",
+  "module": "index.ts"
 }

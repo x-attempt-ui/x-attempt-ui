@@ -1,11 +1,24 @@
+import path from 'node:path'
 import { build } from 'vite'
-import { glob } from 'fast-glob'
+import fsGlob from 'fast-glob'
 import fs from 'fs-extra'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import { consola } from 'consola'
-import { createPath, distDir, esDir, indexDir, libDir, srcDir } from '../../utils/paths'
+import { DIST_DIR, ES_DIR, LIB_DIR, usePath } from '../../utils/paths'
+
+const {
+  getRoot,
+  getOutputPath,
+  getTsConfigPath,
+} = usePath('x-attempt-ui', 'build-component')
+
+const root = getRoot()
+const distDir = getOutputPath(DIST_DIR)
+const esDir = getOutputPath(ES_DIR)
+const libDir = getOutputPath(LIB_DIR)
+const tsConfigPath = getTsConfigPath()
 
 async function buildComponent() {
   consola.start('build component module...')
@@ -14,12 +27,10 @@ async function buildComponent() {
   await fs.emptyDir(esDir)
   await fs.emptyDir(libDir)
   const entry = [
-    ...glob
-      .sync('**/*.{ts,vue}', {
-        absolute: true,
-        cwd: srcDir,
-        ignore: ['node_modules'],
-      }),
+    ...fsGlob.sync('**/*.{ts,vue}', {
+      absolute: true,
+      cwd: path.resolve(root, 'src'),
+    }),
   ]
 
   await build({
@@ -27,7 +38,7 @@ async function buildComponent() {
       vue(),
       vueJsx(),
       dts({
-        tsconfigPath: createPath('./tsconfig.json'),
+        tsconfigPath: tsConfigPath,
         outDir: [esDir, libDir],
         beforeWriteFile(filePath, content) {
           const isEsModule = filePath.includes('/es/')
@@ -60,7 +71,7 @@ async function buildComponent() {
             dir: esDir,
             exports: undefined,
             preserveModules: true,
-            preserveModulesRoot: srcDir,
+            preserveModulesRoot: path.resolve(root, 'src'),
             entryFileNames: `[name].mjs`,
           },
           {
@@ -68,7 +79,7 @@ async function buildComponent() {
             dir: libDir,
             exports: 'named',
             preserveModules: true,
-            preserveModulesRoot: srcDir,
+            preserveModulesRoot: path.resolve(root, 'src'),
             entryFileNames: `[name].js`,
           },
         ],
@@ -85,7 +96,7 @@ async function buildComponent() {
       minify: true,
       sourcemap: true,
       lib: {
-        entry: indexDir,
+        entry: path.resolve(root, 'src/index.ts'),
         name: 'XAttemptUI',
         formats: ['iife'],
         fileName: () => 'index.js',

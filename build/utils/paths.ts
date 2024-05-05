@@ -1,14 +1,33 @@
 import path from 'node:path'
 import process from 'node:process'
 
-export const root = process.cwd()
-export function createPath(...p: string[]) {
-  return path.resolve(root, ...p)
+export const DIST_DIR = 'dist'
+export const ES_DIR = 'es'
+export const LIB_DIR = 'lib'
+
+export function usePath(pkgName: string, buildPath: string) {
+  const cwdRoot = process.cwd()
+
+  const getRoot = () => {
+    return path.resolve(cwdRoot, 'packages', pkgName)
+  }
+
+  const getPkgJsonPath = () => {
+    return path.resolve(getRoot(), 'package.json')
+  }
+
+  const getTsConfigPath = () => {
+    return path.resolve(getRoot(), 'tsconfig.json')
+  }
+
+  const getOutputPath = (dir = DIST_DIR) => {
+    return path.resolve(cwdRoot, 'build/src', buildPath, dir)
+  }
+
+  return {
+    getRoot,
+    getPkgJsonPath,
+    getTsConfigPath,
+    getOutputPath,
+  }
 }
-export const releaseDir = 'release.mjs'
-export const esDir = 'es'
-export const libDir = 'lib'
-export const distDir = 'dist'
-export const indexDir = path.resolve(root, './src/index.ts')
-export const srcDir = path.resolve(root, './src')
-export const compDir = path.resolve(root, './src/components')

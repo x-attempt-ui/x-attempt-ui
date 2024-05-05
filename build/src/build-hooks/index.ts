@@ -1,28 +1,39 @@
+import path from 'node:path'
 import { build } from 'vite'
-import { glob } from 'fast-glob'
+import fsGlob from 'fast-glob'
 import fs from 'fs-extra'
 import dts from 'vite-plugin-dts'
 import { consola } from 'consola'
-import { createPath, distDir, root } from '../../utils/paths'
+import { DIST_DIR, usePath } from '../../utils/paths'
+
+const {
+  getRoot,
+  getOutputPath,
+  getTsConfigPath,
+} = usePath('x-attempt-hooks', 'build-hooks')
+const root = getRoot()
+const outputPath = getOutputPath()
+const tsConfigPath = getTsConfigPath()
+
+buildHooks()
 
 async function buildHooks() {
   consola.start('build hooks...')
 
-  await fs.emptyDir(distDir)
+  await fs.emptyDir(outputPath)
   const entry = [
-    ...glob
+    ...fsGlob
       .sync('**/*.ts', {
         absolute: true,
-        cwd: root,
-        ignore: ['bump.config.ts', 'node_modules'],
+        cwd: path.resolve(root, 'src'),
       }),
   ]
 
   await build({
     plugins: [
       dts({
-        tsconfigPath: createPath('./tsconfig.json'),
-        outDir: createPath(distDir, 'types'),
+        tsconfigPath: tsConfigPath,
+        outDir: path.resolve(outputPath, 'types'),
       }),
     ],
     build: {
@@ -37,10 +48,10 @@ async function buildHooks() {
         output: [
           {
             format: 'esm',
-            dir: distDir,
+            dir: outputPath,
             exports: undefined,
             preserveModules: true,
-            preserveModulesRoot: root,
+            preserveModulesRoot: path.resolve(DIST_DIR, 'src'),
             entryFileNames: `[name].js`,
           },
         ],
