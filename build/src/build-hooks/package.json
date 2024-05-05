@@ -1,0 +1,42 @@
+{
+  "name": "@x-attempt/hooks",
+  "version": "0.0.1",
+  "description": "X Attempt UI composables",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "composables",
+    "hooks",
+    "@x-attempt/hooks"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/src/index.js",
+      "require": "./dist/src/index.js"
+    },
+    "./*": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/src/*.js",
+      "require": "./dist/src/*.js"
+    }
+  },
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
+  "unpkg": "dist/src/index.js",
+  "jsdelivr": "dist/src/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "release": "bumpp && tsx update-version && npm publish --access public"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}
