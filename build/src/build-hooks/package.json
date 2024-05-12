@@ -12,19 +12,19 @@
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/src/index.js",
-      "require": "./dist/src/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     },
     "./*": {
       "types": "./dist/types/*.d.ts",
-      "import": "./dist/src/*.js",
-      "require": "./dist/src/*.js"
+      "import": "./dist/*.js",
+      "require": "./dist/*.js"
     }
   },
-  "main": "dist/src/index.js",
-  "module": "dist/src/index.js",
-  "unpkg": "dist/src/index.js",
-  "jsdelivr": "dist/src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/global.js",
+  "jsdelivr": "dist/global.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "README.md",

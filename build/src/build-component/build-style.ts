@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'fs-extra'
 import fsGlob from 'fast-glob'
-import sass from 'sass'
+import * as sass from 'sass'
 import { consola } from 'consola'
 import CleanCss from 'clean-css'
 import { DIST_DIR, ES_DIR, LIB_DIR, usePath } from '../../utils/paths'

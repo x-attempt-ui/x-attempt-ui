@@ -49,12 +49,37 @@ async function buildHooks() {
           {
             format: 'esm',
             dir: outputPath,
-            exports: undefined,
+            exports: 'named',
             preserveModules: true,
             preserveModulesRoot: path.resolve(DIST_DIR, 'src'),
             entryFileNames: `[name].js`,
           },
         ],
+      },
+    },
+  })
+
+  await build({
+    build: {
+      minify: true,
+      sourcemap: false,
+      emptyOutDir: false,
+      lib: {
+        entry: path.resolve(root, 'src/index.ts'),
+        name: 'XHooks',
+        formats: ['iife'],
+        fileName: () => 'global.js',
+      },
+      rollupOptions: {
+        external: ['vue'],
+        treeshake: true,
+        output: {
+          dir: outputPath,
+          globals: {
+            vue: 'Vue',
+          },
+          exports: 'named',
+        },
       },
     },
   })

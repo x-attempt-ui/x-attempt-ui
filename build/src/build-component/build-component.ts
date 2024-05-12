@@ -109,6 +109,7 @@ async function buildComponent() {
           globals: {
             vue: 'Vue',
           },
+          exports: 'named',
         },
       },
     },

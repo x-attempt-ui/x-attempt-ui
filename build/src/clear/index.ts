@@ -15,6 +15,6 @@ function clear() {
   ]
 
   paths.forEach((path) => {
-    fs.remove(path)
+    fs.removeSync(path)
   })
 }

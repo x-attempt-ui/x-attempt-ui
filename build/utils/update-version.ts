@@ -2,6 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import fs from 'fs-extra'
 
+// sync package version after update package version by bummp.
 export function updateVersion(packageName: string) {
   const root = process.cwd()
   const pkgJsonPath = path.resolve(root, 'package.json')

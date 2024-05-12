@@ -13,6 +13,7 @@ const {
 } = usePath('x-attempt-icons', 'build-icons')
 
 const root = getRoot()
+const entry = resolve(root, 'index.ts')
 const outputPath = getOutputPath()
 const tsConfigPath = getTsConfigPath()
 
@@ -22,25 +23,21 @@ async function buildIcons() {
   consola.start('build icons...')
 
   await fs.emptyDir(outputPath)
-  const entry = [
-    resolve(root, 'index.ts'),
-  ]
 
-  await doBuildBundle(entry, false)
-  await doBuildIIFEBundle(entry, false)
-  await doBuildIIFEBundle(entry, true)
+  await doBuildBundle(false)
+  await doBuildIIFEBundle()
 
   consola.success('build icons success!')
 }
 
-function doBuildBundle(entry: string[], minify = false) {
+function doBuildBundle(minify = false) {
   return build({
     plugins: [
       vue(),
       dts({
         tsconfigPath: tsConfigPath,
         outDir: [path.resolve(outputPath, 'types')],
-        exclude: 'scripts/**',
+        exclude: ['scripts/**', 'node_modules/**'],
       }),
     ],
     build: {
@@ -48,6 +45,7 @@ function doBuildBundle(entry: string[], minify = false) {
       sourcemap: false,
       lib: {
         entry,
+        fileName: format => format === 'esm' ? 'index.esm.js' : 'index.cjs',
       },
       rollupOptions: {
         external: ['vue'],
@@ -69,27 +67,26 @@ function doBuildBundle(entry: string[], minify = false) {
   })
 }
 
-async function doBuildIIFEBundle(entry: string[], minify = false) {
-  const filename = `index.iife.${minify ? 'min.' : ''}js`
-  await fs.emptyDir(path.resolve(outputPath, 'temp'))
+async function doBuildIIFEBundle() {
   await build({
     plugins: [
       vue(),
     ],
     build: {
-      minify,
+      minify: true,
+      emptyOutDir: false,
       sourcemap: false,
       lib: {
         entry,
         formats: ['iife'],
         name: 'XAttemptIcons',
-        fileName: () => filename,
+        fileName: () => 'global.js',
       },
       rollupOptions: {
         external: ['vue'],
         treeshake: true,
         output: {
-          dir: path.resolve(outputPath, 'temp'),
+          dir: outputPath,
           globals: {
             vue: 'Vue',
           },
@@ -97,6 +94,4 @@ async function doBuildIIFEBundle(entry: string[], minify = false) {
       },
     },
   })
-  await fs.move(path.resolve(outputPath, 'temp', filename), path.resolve(outputPath, filename))
-  await fs.remove(path.resolve(outputPath, 'temp'))
 }

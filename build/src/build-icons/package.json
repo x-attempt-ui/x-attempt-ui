@@ -10,10 +10,10 @@
     "@x-attempt/ui",
     "@x-attempt/icons"
   ],
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
-  "unpkg": "dist/index.iife.min.js",
-  "jsdelivr": "dist/index.iife.min.js",
+  "unpkg": "dist/global.js",
+  "jsdelivr": "dist/global.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "README.md",
